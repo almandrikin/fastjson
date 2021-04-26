@@ -758,7 +758,7 @@ func (v *Value) GetArray(keys ...string) []*Value {
 // 0 is returned for non-existing keys path or for invalid value type.
 func (v *Value) GetFloat64(keys ...string) float64 {
 	v = v.Get(keys...)
-	if v == nil || v.Type() != TypeNumber {
+	if v == nil || v.Type() != TypeNumber || v.Type() != TypeString {
 		return 0
 	}
 	return fastfloat.ParseBestEffort(v.s)
